@@ -1,13 +1,12 @@
 <div class="container">
-    <div class="row row-cols-1 row-cols-md-3">    
+    <div class="row row-cols-1 row-cols-md-4. justify-content-center">    
         <div class="card" style="max-width: 250px; margin: 5px;" *ngFor="let pokemon of pokeList">
             <img class="card-img-top" style="background-color: #f1f1f1;" src="{{pokemon.sprites.front_default}}">
             <div class="card-body">
                 <h6 class="card-subtitle text-muted">#{{ pokemon.id | number: '3.0-0' }}</h6>
                 <h5 class="card-title">{{ pokemon.name | titlecase }}</h5>
                 <h6 
-                    class="card-subtitle mb-2 text-muted badge badge-pill" 
-                    style="display: inline-block;" 
+                    class="card-subtitle mb-2 mr-2 badge poke-type-{{type.type.name}}" 
                     *ngFor="let type of pokemon.types">
                         {{ type.type.name | titlecase }}
                 </h6>
@@ -17,7 +16,7 @@
             </div>
         </div>    
     </div>
-    <div class="row row-cols-md-1 row-cols-md-3">
-        <button type="button" class="btn btn-primary" (click)="pokeLoadMore()">Load More</button> 
+    <div class="row row-cols-md-1 justify-content-center">
+        <button style="max-width: 18rem;" type="button" class="btn btn-primary" (click)="pokeLoadMore()">Load More</button> 
     </div>
 </div>

@@ -10,7 +10,7 @@ import { Observable, forkJoin } from 'rxjs';
 })
 export class PokemonListComponent implements OnInit {
 
-    pokePager: number = 21;
+    pokePager: number = 12;
 
     pokeList: Pokemon[] = new Array();
 

@@ -1,1 +1,46 @@
-// @import '~sass/variables';
+.poke-type-fire {
+    background-color: #fd7d24;
+    color: #fff;
+}
+
+.poke-type-water {
+    background-color: #4592c4;
+    color: #fff;
+}
+
+.poke-type-grass {
+    background-color: #9bcc50;
+    color: #212121;
+}
+
+.poke-type-poison {
+    background-color: #b97fc9;
+    color: #fff;
+}
+
+.poke-type-flying {
+    background: linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);
+    background-color: #3dc7ef;
+    color: #212121;
+}
+
+.poke-type-normal {
+    background-color: #a4acaf;
+    color: #212121;
+}
+
+.poke-type-bug {
+    background-color: #729f3f;
+    color: #fff;
+}
+
+.poke-type-electric {
+    background-color: #eed535;
+    color: #212121;
+}
+
+.poke-type-ground {
+    background: linear-gradient(180deg, #f7de3f 50%, #ab9842 50%);
+    background-color: #f7de3f;
+    color: #212121;
+}
