@@ -3,14 +3,20 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
+import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppHeaderComponent } from './components/app-header/app-header.component';
+import { AppFooterComponent } from './components/app-footer/app-footer.component';
+import { PokemonDetailComponent } from './components/pokemon-detail/pokemon-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PokemonListComponent
+    PokemonListComponent,
+    AppHeaderComponent,
+    AppFooterComponent,
+    PokemonDetailComponent
   ],
   imports: [
     BrowserModule,

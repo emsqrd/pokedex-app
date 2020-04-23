@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Pokemon } from '../interfaces/pokemon';
-import { PokemonService } from '../services/pokemon.service';
+import { Pokemon } from '../../interfaces/pokemon';
+import { PokemonService } from '../../services/pokemon.service';
 import { Observable, forkJoin } from 'rxjs';
 
 @Component({
@@ -34,12 +34,13 @@ export class PokemonListComponent implements OnInit {
             const observables = new Array<Observable<Pokemon>>();
             
             for (let index = start; index <= end; index++) {
-                observables.push(this.getPokemonById(index));
+                observables.push(this.getPokemonById(index));                
             }            
     
             forkJoin(observables)
             .subscribe(res => {
                 this.pokeList.push(...res);
+                
                 observer.next(true);
                 observer.complete();
             });
