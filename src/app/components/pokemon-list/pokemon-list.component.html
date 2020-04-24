@@ -1,24 +1,36 @@
 <div class="container">
     <div class="row row-cols-1 row-cols-md-4. justify-content-center">            
-        <div class="card" style="max-width: 250px; margin: 5px;" *ngFor="let pokemon of pokeList">
+        <div class="card" style="max-width: 250px; margin: 5px;" *ngFor="let pokemon of pokeList">            
             <a routerLink="/detail/{{pokemon.id}}">
-                <img class="card-img-top" style="background-color: #f1f1f1;" src="{{pokemon.sprites.front_default}}">
-                <div class="card-body">
-                    <h6 class="card-subtitle text-muted">#{{ pokemon.id | number: '3.0-0' }}</h6>
-                    <h5 class="card-title">{{ pokemon.name | titlecase }}</h5>
-                    <h6 
-                        class="card-subtitle mb-2 mr-2 badge poke-type-{{type.type.name}}" 
-                        *ngFor="let type of pokemon.types">
-                            {{ type.type.name | titlecase }}
-                    </h6>
-                    <p class="card-text" *ngFor="let entry of pokemon.species.flavor_text_entries">
-                        {{entry.flavor_text}}
-                    </p>
-                </div>                 
+                <img class="card-img-top" style="background-color: #f1f1f1;" src="{{pokemon.sprites.front_default}}">             
             </a>  
+            <div class="card-body">
+                <h6 class="card-subtitle text-muted">#{{ pokemon.id | number: '3.0-0' }}</h6>
+                <h5 class="card-title">{{ pokemon.name | titlecase }}</h5>
+                <h6 
+                    class="card-subtitle mb-2 mr-2 badge poke-type-{{type.type.name}}"
+                    *ngFor="let type of pokemon.types | sortBy:'asc':'slot'">
+                        {{ type.type.name | titlecase }}
+                </h6>
+                <!-- <p class="card-text" *ngFor="let entry of pokemon.species.flavor_text_entries">
+                    {{entry.flavor_text}}
+                </p> -->
+            </div>    
         </div> 
     </div>
+    <!-- <div class="row row-cols-md-1 justify-content-center my-4">
+        <button style="max-width: 18rem;" type="button" class="btn btn-primary" (click)="pokeLoadMore()">Load More</button>         
+    </div> -->
     <div class="row row-cols-md-1 justify-content-center my-4">
-        <button style="max-width: 18rem;" type="button" class="btn btn-primary" (click)="pokeLoadMore()">Load More</button> 
+        <a *ngIf="!loadingPokes" (click)="pokeLoadMore()" id="loadMore" style="display: inline-block;">
+            <span class="btn btn-primary">Load More</span>
+        </a>
+        <div *ngIf="loadingPokes" class="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
     </div>
 </div>

@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppHeaderComponent } from './components/app-header/app-header.component';
 import { AppFooterComponent } from './components/app-footer/app-footer.component';
 import { PokemonDetailComponent } from './components/pokemon-detail/pokemon-detail.component';
+import { SortByPipe } from './sort-by.pipe';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PokemonDetailComponent } from './components/pokemon-detail/pokemon-deta
     PokemonListComponent,
     AppHeaderComponent,
     AppFooterComponent,
-    PokemonDetailComponent
+    PokemonDetailComponent,
+    SortByPipe
   ],
   imports: [
     BrowserModule,

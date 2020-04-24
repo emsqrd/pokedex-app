@@ -8,19 +8,20 @@ import { Pokemon } from '../interfaces/pokemon';
 })
 export class PokemonService {
 
-    pokeUrl = 'https://pokeapi.co/api/v2/pokemon';
+    pokeBaseUrl = 'https://pokeapi.co/api/v2';
 
     constructor(
         private http: HttpClient
     ) { }
 
     getPokemon(): Observable<Pokemon> {
-        return this.http.get<Pokemon>(this.pokeUrl);
+        const url = this.pokeBaseUrl;
+        console.log(url);
+        return this.http.get<Pokemon>(url);
     }   
 
     getPokemonById(id: number): Observable<Pokemon> {
-        const url = `${this.pokeUrl}/${id}`;
-
+        const url = `${this.pokeBaseUrl}/pokemon/${id}`;
         return this.http.get<Pokemon>(url);
     }
 

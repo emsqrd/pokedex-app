@@ -11,6 +11,7 @@ import { Observable, forkJoin } from 'rxjs';
 export class PokemonListComponent implements OnInit {
 
     pokePager: number = 12;
+    loadingPokes: boolean;
 
     pokeList: Pokemon[] = new Array();
 
@@ -19,11 +20,18 @@ export class PokemonListComponent implements OnInit {
     ) { }
         
     ngOnInit(): void {
+        this.loadingPokes = true;
         this.buildPokeList(1, this.pokePager)
             .subscribe(res => {
-                // this.pokeSort();
+                this.loadingPokes = false;
             });
     }
+
+    // toggleLoader() {
+    //     if (this.loadingPokes){
+    //         this.loadingPokes
+    //     }
+    // }
 
     getPokemonById(id: number): Observable<Pokemon> {
         return this.pokemonService.getPokemonById(id);
@@ -39,8 +47,7 @@ export class PokemonListComponent implements OnInit {
     
             forkJoin(observables)
             .subscribe(res => {
-                this.pokeList.push(...res);
-                
+                this.pokeList.push(...res);                
                 observer.next(true);
                 observer.complete();
             });
@@ -54,8 +61,11 @@ export class PokemonListComponent implements OnInit {
     pokeLoadMore(): void {        
         let start = this.pokeList.length + 1;
         let end = this.pokeList.length + this.pokePager;
-
-        this.buildPokeList(start, end).subscribe(() => {});
+        this.loadingPokes = true;
+        this.buildPokeList(start, end)
+            .subscribe(() => {
+                this.loadingPokes = false;
+        });
     }
 
 }
