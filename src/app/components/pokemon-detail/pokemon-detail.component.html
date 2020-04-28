@@ -1,1 +1,6 @@
-<h1></h1>
+<div *ngIf="pokemonSpecies">
+    <h1>{{pokemonSpecies.name}}</h1>
+    <div *ngFor="let desc of pokemonSpecies.flavor_text_entries">
+        <p>{{desc.flavor_text}}</p>
+    </div>
+</div>

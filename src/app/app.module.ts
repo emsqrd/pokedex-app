@@ -10,6 +10,7 @@ import { AppHeaderComponent } from './components/app-header/app-header.component
 import { AppFooterComponent } from './components/app-footer/app-footer.component';
 import { PokemonDetailComponent } from './components/pokemon-detail/pokemon-detail.component';
 import { SortByPipe } from './sort-by.pipe';
+import { FlavorTextFilter } from './pipes/pokefilter.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SortByPipe } from './sort-by.pipe';
     AppHeaderComponent,
     AppFooterComponent,
     PokemonDetailComponent,
-    SortByPipe
+    SortByPipe,
+    FlavorTextFilter
   ],
   imports: [
     BrowserModule,
